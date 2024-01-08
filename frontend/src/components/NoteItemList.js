@@ -1,22 +1,22 @@
 import React from 'react'
 import { useNavigate, Link } from "react-router-dom"
 
-const NoteItemList = () => {
+const NoteItemList = ({ note }) => {
     const navigate = useNavigate();
 
-    const goToNote = () => {
-        navigate('/note/')
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString()
     }
 
   return (
-    <Link to="/note/">
+    <Link to={`/note/${note.id}/`}>
         <div className="note-listitem">
             <div className="note-listitem-header">
-                <div className="note-listitem-title">title of the notet</div>
-                <div className="note-listitem-date">2024/01/02</div>
+                <div className="note-listitem-title">{note.title}</div>
+                <div className="note-listitem-date">{formatDate(note.update_date)}</div>
             </div>
             <div className="note-listitem-body">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ....
+                {note.body.slice(0, 100)}
             </div>
         </div>
     </Link>

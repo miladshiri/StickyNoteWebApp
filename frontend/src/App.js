@@ -1,6 +1,8 @@
 import './App.css';
 import NotesListPage from './pages/NotesListPage';
 import NotePage from './pages/NotePage';
+import NoteCreatePage from './pages/NoteCreatePage'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -16,7 +18,8 @@ function App() {
           <div className="app-body">
             <Routes>
               <Route path="/" exact element={<NotesListPage />}></Route>
-              <Route path="/note/" element={<NotePage />}></Route>
+              <Route path="/note/:noteId/" element={<NotePage />}></Route>
+              <Route path="/note/create/" element={<NoteCreatePage />}></Route>
             </Routes>
             
 
